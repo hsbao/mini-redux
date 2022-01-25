@@ -1,18 +1,12 @@
-import { createStore } from '../redux'
+import { createStore, combineReducers } from '../redux'
+import numberReducer from './reducers/number'
+import number2Reducer from './reducers/number2'
 
-let initialState = {
-  num: 0,
-}
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case 'ADD':
-      return { num: state.num + 1 }
-    case 'MINUS':
-      return { num: state.num - 1 }
-    default:
-      return state
-  }
+const redecers = {
+  num1: numberReducer,
+  num2: number2Reducer
 }
 
-const store = createStore(reducer)
+const combineReducer = combineReducers(redecers)
+const store = createStore(combineReducer) // { numberReducer: {num: 0}, number2Reducer: {num: 0} }  
 export default store
