@@ -7,7 +7,7 @@
 function createStore(reducer) {
   let state
   let listeners = []
-  function gettState() {
+  function getState() {
     return state
   }
 
@@ -39,7 +39,7 @@ function createStore(reducer) {
 	dispatch({ type: '@@REDUX/INIT' }) // 源码里也是这样，初始化的时候会调用一下dispatch
 
   return {
-    gettState,
+    getState,
     dispatch,
     subscribe,
   }
