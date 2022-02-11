@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import Count from './components/Count'
 // import { bindActionCreators } from './redux'
 // import store from './store'
 import { connect } from './react-redux'
@@ -41,9 +43,9 @@ class App extends Component {
   // }
 
   render() {
-    console.log(this.props)
     return (
       <div className="App">
+        <Count name="Count" />
         <p>{this.props.num1.num}</p>
         <button onClick={() => this.props.add()} style={{marginRight: '20px'}}>加1</button>
         <button onClick={() => this.props.minus()}>减1</button>
@@ -57,6 +59,12 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => state
+
+// const mapDispatchToProps = (dispatch) => ({
+//   add() {
+//     dispatch({ type: 'ADD' })
+//   }
+// })
 const mapDispatchToProps = actions
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
